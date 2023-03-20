@@ -80,7 +80,7 @@ function Post() {
                 <div>
                   <img
                     className="w-full h-[300px] object-cover"
-                    src={"http://localhost:8000/" + post.cover}
+                    src={baseAPI + post.cover}
                   />
                 </div>
 
