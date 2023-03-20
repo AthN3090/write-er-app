@@ -23,7 +23,7 @@ function ArticleCard({_id, title, body, author, cover, createdAt, topic}) {
                 <AiOutlineUser className="w-[24px] h-[24px] bg-gray-700 rounded-full text-gray-300" />
             ) : (
                 <img
-                src={baseAPI + avatar}
+                src={baseAPI + "/" +  avatar}
                 className="w-[24px] h-[24px] rounded-full object-cover"
                 alt="avatar"
               ></img>

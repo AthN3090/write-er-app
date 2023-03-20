@@ -58,7 +58,7 @@ function Navbar() {
                   <div className="sm:hidden">
                     <img
                       className="w-[32px] h-[32px] rounded-full object-cover"
-                      src={baseAPI + avatar}
+                      src={baseAPI + "/" + avatar}
                     ></img>
                   </div>
                 )
@@ -92,7 +92,7 @@ function Navbar() {
                   <div className="hidden sm:block">
                     <img
                       className="w-[32px] h-[32px] rounded-full object-cover"
-                      src={baseAPI + avatar}
+                      src={baseAPI + "/" + avatar}
                     ></img>
                   </div>
                 )}
