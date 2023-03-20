@@ -57,7 +57,7 @@ function ArticleCard({_id, title, body, author, cover, createdAt, topic}) {
               <Link to={`/post/${_id}`}>
                 <img
                   className="w-[250px] object-cover"
-                  src={baseAPI + cover}
+                  src={baseAPI + "/" + cover}
                 ></img>
               </Link>
             </div>
