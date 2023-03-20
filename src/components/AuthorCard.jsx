@@ -8,7 +8,7 @@ function AuthorCard({username, avatar, headline, fullname}) {
           <AiOutlineUser className="w-[60px] h-[60px] bg-gray-700 rounded-full text-gray-300" />
         ) : (
           <img
-            src={baseAPI + avatar}
+            src={baseAPI + "/" + avatar}
             className="w-[60px] h-[60px] rounded-full object-cover"
             alt="avatar"
           ></img>

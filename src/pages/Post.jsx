@@ -48,7 +48,7 @@ function Post() {
         <Navbar />
         <div className="flex justify-center">
           <div className="flex justify-center  gap-2 items-start grow lg:grow-0 m-2 lg:flex-row flex-col">
-            {user ? (
+            {user === author.username ? (
               loading ? null : (
                 <div className="flex lg:flex-col gap-2">
                   <div className="p-3 bg-neutral-700 rounded-full flex items-center ">
