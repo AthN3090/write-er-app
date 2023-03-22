@@ -56,7 +56,7 @@ function SignpBox() {
     return <Navigate to={'/login'} />
 
     return (
-      <div className="shadow-md border border-gray-700 px-20 py-20 rounded-md">
+      <div className=" sm:border border-gray-700 sm:px-20 py-20  px-5 rounded-md">
         <div className="">
           <p className="text-center mb-16 text-gray-700 text-2xl font-bold">
             {" "}
@@ -76,12 +76,13 @@ function SignpBox() {
           </p> : ""}
           <div className="flex gap-5 items-center justify-between">
           {avatar === null ? (
-            <AiOutlineUser className="w-[48px] h-[48px] bg-gray-700 rounded-full text-gray-300" />
+            <AiOutlineUser className="min-w-[48px] h-[48px] bg-gray-700 rounded-full text-gray-300" />
           ):
-          <img className="w-[60px] h-[60px] bg-gray-700 rounded-full object-cover" src={URL.createObjectURL(avatar[0])} />
+          <img className="w-[48px] h-[48px] bg-gray-700 rounded-full object-cover" src={URL.createObjectURL(avatar[0])} />
           }
           
           <input
+          className="w-full"
           type={'file'}
           onChange={(e) => setAvatar(e.target.files)}
           />

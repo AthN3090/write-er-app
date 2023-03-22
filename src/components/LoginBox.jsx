@@ -37,7 +37,7 @@ function LoginBox() {
     return <Navigate to={'/'} />
   
   return (
-    <div className="border border-gray-700  px-20 py-20 rounded-md">
+    <div className="sm:border border-gray-700  sm:px-20 py-20  px-5 rounded-md">
       <div className="">
         <p className="text-center mb-16 text-gray-700 text-2xl font-bold">
           {" "}

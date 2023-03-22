@@ -47,7 +47,7 @@ function ArticleCard({_id, title, body, author, cover, createdAt, topic}) {
                 </p>
               </Link>
               <div>
-                <ReactMarkdown className="max-w-none text-base font-serif my-5 text-gray-800 overflow-hidden  sm:break-normal break-all text-ellipsis md:line-clamp-3 line-clamp-1">
+                <ReactMarkdown className="max-w-none prose-pre:whitespace-pre-wrap text-base font-serif my-5 text-gray-800 overflow-hidden  sm:break-normal break-all text-ellipsis md:line-clamp-3 line-clamp-1">
                   {body}
                 </ReactMarkdown>
               </div>
@@ -56,7 +56,7 @@ function ArticleCard({_id, title, body, author, cover, createdAt, topic}) {
             <div className="flex grow items-center justify-center ">
               <Link to={`/post/${_id}`}>
                 <img
-                  className="w-[250px] object-cover"
+                  className="w-[250px] h-[200px] object-cover"
                   src={baseAPI + "/images/" + cover}
                 ></img>
               </Link>
