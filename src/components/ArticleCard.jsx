@@ -23,7 +23,7 @@ function ArticleCard({_id, title, body, author, cover, createdAt, topic}) {
                 <AiOutlineUser className="w-[24px] h-[24px] bg-gray-700 rounded-full text-gray-300" />
             ) : (
                 <img
-                src={baseAPI + "/" +  avatar}
+                src={baseAPI + "/images/" +  avatar}
                 className="w-[24px] h-[24px] rounded-full object-cover"
                 alt="avatar"
               ></img>
@@ -57,7 +57,7 @@ function ArticleCard({_id, title, body, author, cover, createdAt, topic}) {
               <Link to={`/post/${_id}`}>
                 <img
                   className="w-[250px] object-cover"
-                  src={baseAPI + "/" + cover}
+                  src={baseAPI + "/images/" + cover}
                 ></img>
               </Link>
             </div>

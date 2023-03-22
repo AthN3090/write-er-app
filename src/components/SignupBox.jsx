@@ -12,9 +12,17 @@ function SignpBox() {
     const [headline, setHeadline] = useState('')
     const [avatar, setAvatar] = useState(null)
     const [redirect, setRedirect] = useState(false)
-    
+    const [inavlidPasswordMatch, setInvalidPasswordMatch] = useState(false)
+    const [usernameAlreadyExist, setUsernameAlreadyExist] = useState(false)
     function Register(e) {
       e.preventDefault();
+      
+      if(password !== passwordConfirm){
+        setInvalidPasswordMatch(true)
+        return
+      }
+
+      
       const data = new FormData()
       data.set('username', username)
       data.set('headline', headline)
@@ -34,7 +42,8 @@ function SignpBox() {
           setRedirect(true)
         })
         .catch(e => {
-          alert(e.response.data)
+          console.log(e.response.data)
+          setUsernameAlreadyExist(true)
         })
       
       
@@ -55,6 +64,12 @@ function SignpBox() {
             className="flex flex-col gap-3"
             onSubmit={Register}
           >
+          {inavlidPasswordMatch ? <p className="text-center mb-3 text-red-700 font-semibold invalid">
+            Password and Confirm Password do not match
+          </p> : ""}
+          {usernameAlreadyExist ? <p className="text-center mb-3 text-red-700 font-semibold invalid">
+            Username already occupied, Please try a different username
+          </p> : ""}
           <div className="flex gap-5 items-center justify-between">
           {avatar === null ? (
             <AiOutlineUser className="w-[48px] h-[48px] bg-gray-700 rounded-full text-gray-300" />
@@ -74,7 +89,11 @@ function SignpBox() {
               type={"text"}
               placeholder="Full name"
               value={fullname}
-              onChange={(e)=> setFullname(e.target.value)}
+              onChange={(e)=> {
+                if(inavlidPasswordMatch) setInvalidPasswordMatch(false)
+                if(usernameAlreadyExist) setUsernameAlreadyExist(false)
+                setFullname(e.target.value)
+                }}
             />
             <input
             required
@@ -82,7 +101,11 @@ function SignpBox() {
               type={"text"}
               placeholder="Username"
               value={username}
-              onChange={(e)=> setUsername(e.target.value)}
+              onChange={(e)=> {
+                if(inavlidPasswordMatch) setInvalidPasswordMatch(false)
+                if(usernameAlreadyExist) setUsernameAlreadyExist(false)
+                setUsername(e.target.value)}
+                }
             />
             <input
             required
@@ -90,7 +113,11 @@ function SignpBox() {
               type={"text"}
               placeholder="Profile headline"
               value={headline}
-              onChange={(e)=> setHeadline(e.target.value)}
+              onChange={(e)=> {
+                if(inavlidPasswordMatch) setInvalidPasswordMatch(false)
+                if(usernameAlreadyExist) setUsernameAlreadyExist(false)
+                setHeadline(e.target.value)
+              }}
             />
             <input
             required
@@ -98,7 +125,11 @@ function SignpBox() {
               type={"password"}
               placeholder="Password"
               value={password}
-              onChange={(e)=> setPassword(e.target.value)}
+              onChange={(e)=> {
+                if(inavlidPasswordMatch) setInvalidPasswordMatch(false)
+                if(usernameAlreadyExist) setUsernameAlreadyExist(false)
+                setPassword(e.target.value)
+              }}
             />
             <input
             required  
@@ -106,7 +137,11 @@ function SignpBox() {
               type={"password"}
               placeholder="Confirm Password"
               value={passwordConfirm}
-              onChange={(e)=> setPasswordConfirm(e.target.value)}
+              onChange={(e)=> {
+                if(inavlidPasswordMatch) setInvalidPasswordMatch(false)
+                if(usernameAlreadyExist) setUsernameAlreadyExist(false)
+                setPasswordConfirm(e.target.value)
+              }}
             />
             <button
               className="mt-4 p-3 bg-gray-700 rounded-md text-white"

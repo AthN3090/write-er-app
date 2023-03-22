@@ -9,7 +9,7 @@ function LoginBox() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [redirect, setRedirect] = useState(false)
-  
+  const [invalid, setInvalid]  = useState(false)
   //redux state
   const user = useSelector((state) => state.user.value)
   const setUser = useDispatch()
@@ -24,7 +24,7 @@ function LoginBox() {
         setUser(login(username))
     })
     .catch(err => {
-      alert("Invalid credentials")
+      setInvalid(true)
     })
   }
   
@@ -43,14 +43,20 @@ function LoginBox() {
         <form
           className="flex flex-col gap-3"
           onSubmit={userLogin}
-        >
+        > 
+          {invalid ? <p className="text-center text-red-600 font-semibold italic"> Invalid credentials</p>
+          : ""}
+
           <input
             className="border border-gray-700 rounded-md p-3"
             required
             type={"text"}
             placeholder="Username"
             value={username}
-            onChange = {(e)=> setUsername(e.target.value)}
+            onChange = {(e)=> {
+              if(invalid) setInvalid(false)
+              setUsername(e.target.value)
+              }}
             />
           <input
             className="border border-gray-700 rounded-md p-3"
@@ -58,7 +64,10 @@ function LoginBox() {
             type={"password"}
             placeholder="Password"
             value={password}
-            onChange = {(e)=> setPassword(e.target.value)}
+            onChange = {(e)=> {
+              if(invalid) setInvalid(false)
+              setPassword(e.target.value)
+              }}
           />
           <button
             className="mt-4 p-3 bg-gray-700 rounded-md text-white"
