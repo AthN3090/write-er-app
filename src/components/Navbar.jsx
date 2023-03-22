@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { baseAPI, Bucket } from "../App";
+import { baseAPI} from "../App";
 import {login} from '../features/user'
 import logo from '../assets/logo.PNG'
 import edit from '../assets/edit.png'
