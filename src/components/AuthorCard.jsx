@@ -14,9 +14,9 @@ function AuthorCard({username, avatar, headline, fullname}) {
           ></img>
         )}
 
-        <p className="font-semibold mt-2 text-xl">{fullname}</p>
+        <p className="font-bold mt-2 text-xl text-gray-800">{fullname}</p>
         <p className=" text-sm text-gray-500 font-semibold">{'@' + username}</p>
-        <p className="text-sm mt-5">
+        <p className="text-sm mt-3 font-mono">
           {headline}
         </p>
         <div className="text-sm flex gap-3 underline  mt-5">

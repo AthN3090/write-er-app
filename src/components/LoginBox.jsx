@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, redirect } from "react-router-dom";
 import {login} from '../features/user'
 import axios from 'axios'
+import spinner from "../assets/spinner.png"
 import { baseAPI } from "../App";
 import Login from "../pages/Login";
 function LoginBox() {
@@ -10,6 +11,7 @@ function LoginBox() {
   const [password, setPassword] = useState('')
   const [redirect, setRedirect] = useState(false)
   const [invalid, setInvalid]  = useState(false)
+  const [waiting, setWaiting] = useState(false)
   //redux state
   const user = useSelector((state) => state.user.value)
   const setUser = useDispatch()
@@ -17,14 +19,17 @@ function LoginBox() {
 
   function userLogin(e){
     e.preventDefault()
+    setWaiting(true)
     axios
     .post(baseAPI + "/login",{username, password},{withCredentials: true})
     .then(response => {
         setRedirect(true)
         setUser(login(username))
+        setWaiting(false)
     })
     .catch(err => {
       setInvalid(true)
+      setWaiting(false)
     })
   }
   
@@ -73,7 +78,14 @@ function LoginBox() {
             className="mt-4 p-3 bg-gray-700 rounded-md text-white"
             type="submit"
           >
-            Log in
+          {waiting? (
+            <img
+                  className="animate-spin w-[30px] m-auto invert"
+                  src={spinner}
+                  alt="spinner"
+                />
+          ) : "Log in"}
+            
           </button>
         </form>
         <p className="text-center mt-5">

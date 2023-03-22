@@ -46,13 +46,13 @@ function NewPost() {
   if (!user) return <Navigate to={"/"} />;
   return (
     <div className="flex justify-center p-5">
-      <form onSubmit={createNewPost} className="xl:w-[50%]">
+      <form onSubmit={createNewPost} className="lg:w-[60%] w-full">
         <div>
-          <span className="p-3">Add cover photo :</span>
+          <div className="p-3 text-gray-700 font-semibold">Add cover photo :</div>
           <input
           required
             type={"file"}
-            className="px-5 py-3 mb-5 border border-black"
+            className="px-5 py-3 mb-5 border  w-full"
             onChange={(e) => setFiles(e.target.files)}
           ></input>
           {/* <img srcc={""}> </img> */}

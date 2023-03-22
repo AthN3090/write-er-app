@@ -9,6 +9,7 @@ import DevFooter from "../components/DevFooter";
 import { useSelector } from "react-redux";
 import spinner from "../assets/spinner.png"
 import ReactMarkdown from 'react-markdown'
+import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from 'remark-gfm'
 import edit from '../assets/edit.png'
 import trash from '../assets/delete.png'
@@ -44,7 +45,7 @@ function Post() {
     }
     if(redirect) return <Navigate to="/" />
     return (
-      <div className="">
+      <div className="bg-gray-100">
         <Navbar />
         <div className="flex justify-center">
           <div className="flex justify-center  gap-2 items-start grow lg:grow-0 m-2 lg:flex-row flex-col">
@@ -68,7 +69,7 @@ function Post() {
               )
             ) : null}
             {loading ? (
-              <div className=" lg:w-[700px] grow rounded-md overflow-hidden text-center">
+              <div className=" lg:w-[700px] grow rounded-md overflow-hidden text-center m-auto">
                 <img
                   className="animate-spin w-[50px] m-auto"
                   src={spinner}
@@ -105,11 +106,12 @@ function Post() {
                   </div>
                   <div className="my-7">
                     <ReactMarkdown
-                      className="prose  max-w-none
-                  text-gray-800"
+                      rehypePlugins={[rehypeHighlight]}
+                      className="prose max-w-none"
                       children={post.body}
                       remarkPlugins={[remarkGfm]}
-                    ></ReactMarkdown>
+                    >
+                    </ReactMarkdown>
                   </div>
                   {/* <div
                     className="text-lg"

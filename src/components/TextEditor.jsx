@@ -21,10 +21,11 @@ function TextEditor({body, setBody}) {
         "fullscreen",
         "guide"
       ],
+      maxHeight: "400px"
     };
   }, []);
     return (
-      <SimpleMdeReact className="bg-prose max-w-none" value={body} onChange={setBody}  options={options}/>
+      <SimpleMdeReact className="bg-prose max-w-none prose prose-pre:text-black" value={body} onChange={setBody}  options={options}/>
 
 
 

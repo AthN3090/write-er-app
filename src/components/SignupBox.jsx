@@ -4,6 +4,7 @@ import axios from 'axios'
 import { baseAPI } from "../App";
 import { Navigate } from "react-router-dom";
 import { AiOutlineUser } from 'react-icons/ai'
+import spinner from "../assets/spinner.png"
 function SignpBox() {
     const [username, setUsername] = useState('')
     const [fullname, setFullname] = useState('')
@@ -14,9 +15,10 @@ function SignpBox() {
     const [redirect, setRedirect] = useState(false)
     const [inavlidPasswordMatch, setInvalidPasswordMatch] = useState(false)
     const [usernameAlreadyExist, setUsernameAlreadyExist] = useState(false)
+    const [waiting, setWaiting] = useState(false)
     function Register(e) {
+      setWaiting(true)
       e.preventDefault();
-      
       if(password !== passwordConfirm){
         setInvalidPasswordMatch(true)
         return
@@ -40,10 +42,12 @@ function SignpBox() {
         .then((response) => {
           console.log(response);
           setRedirect(true)
+          setWaiting(false)
         })
         .catch(e => {
           console.log(e.response.data)
           setUsernameAlreadyExist(true)
+          setWaiting(false)
         })
       
       
@@ -147,7 +151,13 @@ function SignpBox() {
               className="mt-4 p-3 bg-gray-700 rounded-md text-white"
               type="submit"
             >
-              Sign up
+              {waiting? (
+            <img
+                  className="animate-spin w-[30px] m-auto invert"
+                  src={spinner}
+                  alt="spinner"
+                />
+          ) : "Sign up"}
             </button>
           </form>
           <p className="text-center mt-5">
