@@ -107,7 +107,7 @@ function Post() {
                   <div className="my-7">
                     <ReactMarkdown
                       rehypePlugins={[rehypeHighlight]}
-                      className="prose max-w-none"
+                      className="prose max-w-none prose-pre:whitespace-pre-wrap"
                       children={post.body}
                       remarkPlugins={[remarkGfm]}
                     >

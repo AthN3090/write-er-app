@@ -53,7 +53,7 @@ function EditPost() {
       <form onSubmit={updatePost} className="xl:w-[50%]">
         <input
           type={"file"}
-          className="px-5 py-3 mb-5 border border-black"
+          className="px-5 py-3 mb-5 border w-full"
           onChange={(e) => setFiles(e.target.files)}
         ></input>
 

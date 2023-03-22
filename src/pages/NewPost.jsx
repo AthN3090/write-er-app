@@ -52,7 +52,7 @@ function NewPost() {
           <input
           required
             type={"file"}
-            className="px-5 py-3 mb-5 border  w-full"
+            className="px-5 py-3 mb-5 border w-full"
             onChange={(e) => setFiles(e.target.files)}
           ></input>
           {/* <img srcc={""}> </img> */}
