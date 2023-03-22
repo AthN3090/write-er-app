@@ -76,7 +76,7 @@ function Post() {
                 />
               </div>
             ) : (
-              <div className=" lg:border bg-white lg:w-[700px] grow rounded-md overflow-hidden">
+              <div className=" lg:border bg-white lg:w-[700px] grow self-stretch rounded-md overflow-hidden">
                 <div>
                   <img
                     className="w-full h-[300px] object-cover"
