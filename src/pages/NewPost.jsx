@@ -35,7 +35,10 @@ function NewPost() {
       })
       .then((response) => {
         if (response.status === 200) setRedirect(true);
-      });
+      })
+      .catch(e => {
+        console.log(e.response.data)
+      })
   }
 
   if (redirect) return <Navigate to={"/"} />;
@@ -47,6 +50,7 @@ function NewPost() {
         <div>
           <span className="p-3">Add cover photo :</span>
           <input
+          required
             type={"file"}
             className="px-5 py-3 mb-5 border border-black"
             onChange={(e) => setFiles(e.target.files)}

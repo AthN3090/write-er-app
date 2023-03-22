@@ -78,16 +78,18 @@ function Post() {
             ) : (
               <div className=" lg:border bg-white lg:w-[700px] grow self-stretch rounded-md overflow-hidden">
                 <div>
+                {post.cover === 'default' ? '' : (
                   <img
                     className="w-full h-[300px] object-cover"
                     src={baseAPI + "/images/" + post.cover}
                   />
+                )}
                 </div>
 
                 <div className="lg:p-5 p-1">
                   <div className="mt-3">
-                    <p className="text-lg font-semibold"> {"@"+post.author} </p>
-                    <p className="text-sm text-neutral-600">
+                    <p className="text-md font-semibold"> {"@"+post.author} </p>
+                    <p className="text-xs text-neutral-600">
                       {"Posted on "}
                       &bull; {moment(post.createdAt).format(
                         "D-MM-YYYY"
