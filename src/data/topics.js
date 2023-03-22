@@ -8,5 +8,6 @@ export const topics = [
     "Chat GPT",
     "Productivity",
     "Backend",
-    "Artifical Intelligence"
+    "Artifical Intelligence",
+    "Ethical Hacking"
 ];
