@@ -124,7 +124,7 @@ function Post() {
             {loading ? (
               ""
             ) : (
-              <div className="lg:w-[25%]  lg:min-w-[250px] border sticky w-full rounded-md overflow-hidden">
+              <div className="lg:w-[25%]  lg:min-w-[250px] border sticky top-2 w-full rounded-md overflow-hidden">
                 <p className="bg-gray-700 border-b p-5 "></p>
                 <div>
                   <AuthorCard {...author} />

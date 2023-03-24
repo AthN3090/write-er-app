@@ -43,7 +43,7 @@ function Home() {
           </div>
           <div className="hidden xl:w-[25%] lg:w-[40%] lg:block ">
             <p className="text-3xl border-b font-bold font-mono p-5">Discover</p>
-            <div className="">
+            <div className="sticky top-2">
               <RecTopics />
               {/*Dev side footer*/}
               <div className="">
