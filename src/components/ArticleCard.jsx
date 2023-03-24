@@ -47,7 +47,7 @@ function ArticleCard({_id, title, body, author, cover, createdAt, topic}) {
                 </p>
               </Link>
               <div>
-                <ReactMarkdown className="max-w-none prose-pre:whitespace-pre-wrap text-base font-serif my-5 text-gray-800 overflow-hidden  sm:break-normal break-all text-ellipsis md:line-clamp-3 line-clamp-1">
+                <ReactMarkdown className="inline max-w-none prose-pre:whitespace-pre-wrap text-base font-serif my-5 text-gray-800 overflow-hidden  sm:break-normal break-all text-ellipsis md:line-clamp-3 line-clamp-1">
                   {body}
                 </ReactMarkdown>
               </div>
