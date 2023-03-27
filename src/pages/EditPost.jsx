@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
 import { baseAPI } from "../App";
 import TextEditor from "../components/TextEditor";
+import spinner from "../assets/spinner.png"
 
 function EditPost() {
   const { id } = useParams()
@@ -12,7 +13,7 @@ function EditPost() {
   const [files, setFiles] = useState("")
   const [redirect, setRedirect] = useState(false)
   const user = useSelector((state) => state.user.value.name)
-
+  const [waiting, setWaiting] = useState(false)
   function autogrow(e) {
     e.target.style.height = "48px";
     e.target.style.height = e.target.scrollHeight + "px";
@@ -29,6 +30,7 @@ function EditPost() {
 
   function updatePost(e){
     e.preventDefault()
+    setWaiting(true)
     const data = new FormData()
     data.set("title", title)
     data.set("body", body)
@@ -42,8 +44,14 @@ function EditPost() {
         withCredentials: true
       })
       .then((response) => {
-        if(response.status === 200) setRedirect(true)
-      });
+        if(response.status === 200) {
+          setRedirect(true)
+        }
+      })
+      .catch(e => {
+        console.log(e.response.data)
+        setWaiting(false)
+      })
   }
   if (redirect) return <Navigate to={`/post/${id}`} />;
 
@@ -74,7 +82,13 @@ function EditPost() {
           type="submit"
           className="px-5 py-2 mt-5 bg-gray-700 w-full text-white"
         >
-          Create post
+           {waiting? (
+            <img
+                  className="animate-spin w-[30px] m-auto invert"
+                  src={spinner}
+                  alt="spinner"
+                />
+          ) : "Submit post"}
         </button>
       </form>
     </div>

@@ -7,12 +7,14 @@ import { Navigate } from "react-router-dom";
 import TextEditor from "../components/TextEditor";
 import { topics } from "../data/topics";
 import TopicLabel from "../components/TopicLabel";
+import spinner from "../assets/spinner.png"
 function NewPost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [files, setFiles] = useState("");
   const [topic, setTopic] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [waiting, setWaiting] = useState(false)
   const user = useSelector((state) => state.user.value.name);
 
   function autogrow(e) {
@@ -21,7 +23,7 @@ function NewPost() {
   }
   function createNewPost(e) {
     e.preventDefault();
-
+    setWaiting(true)
     const data = new FormData();
     data.set("title", title);
     data.set("body", body);
@@ -38,6 +40,7 @@ function NewPost() {
       })
       .catch(e => {
         console.log(e.response.data)
+        setWaiting(false)
       })
   }
 
@@ -99,7 +102,13 @@ function NewPost() {
           type="submit"
           className="px-5 py-2 mt-5 bg-gray-700 w-full text-white"
         >
-          Create post
+           {waiting? (
+            <img
+                  className="animate-spin w-[30px] m-auto invert"
+                  src={spinner}
+                  alt="spinner"
+                />
+          ) : "Create post"}
         </button>
       </form>
     </div>
