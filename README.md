@@ -2,7 +2,7 @@
    <img width="300px"  src="./readme-images/banner.PNG" />
 </p>
 <h1 align="center">write-er ✍</h1>
-<h3 align="center">A simple blogging application.
+<h3 align="center">A simple blogging application with React-markdown.
 </h3>
 
 <p align="center">
@@ -29,16 +29,13 @@
 </p>
 
 ## About The Project
+Write-er is a minimal blogging website based on [react-markdown](https://www.npmjs.com/package/react-markdown).
 
-Heiwa is a messaging platform for people to talk about their mental health and connect with people going through a similar phase.
-It also has a basic whiteboard which can be used to play funny doodle games, or people can use it to express themselves creatively.
-<br><br>On the homepage, The user has to fill the following details :
+Features implemented:
 
-1. Nickname
-2. Tags to describe your feeling
-3. Tags to describe your interests
-
-The user is matched randomly to another user. After matching, the users can talk about their mental health problems through chat box, or can use the whiteboard to play simple games like (Tic-tac-toe, hangman etc).
+1. **Text editor** - Implemented using [react-markdown](https://www.npmjs.com/package/react-markdown). Users can create, edit and delete their posts.
+2. **User authentication** - It uses [JWT(JSON Web Tokens)](https://jwt.io/) for authentication. Passwords are encrypted using [bcrypt](https://www.npmjs.com/package/bcrypt).
+3. **Post filtering** - Filtering based on the topic of the post.
 
 ## Local Setup
 
@@ -59,7 +56,7 @@ $ npm run dev
 
 ---
 
-### Backend API
+## Backend API
 
 The API is written in Express. It handles all the CRUD requests, User authentication requests with JSON webtoken and deals with AWS s3 to store images.<br>
 Link - [Backend code repo - Express + Node](https://github.com/AthN3090/write-er-api)
