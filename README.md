@@ -35,7 +35,7 @@ Features implemented:
 
 1. **Text editor** - Implemented using [react-markdown](https://www.npmjs.com/package/react-markdown). Users can create, edit and delete their posts.
 2. **User authentication** - It uses [JWT(JSON Web Tokens)](https://jwt.io/) for authentication. Passwords are encrypted using [bcrypt](https://www.npmjs.com/package/bcrypt).
-3. **Post filtering** - Filtering based on the topic of the post.
+3. **Post filtering** - Filtering based on the topic tag of the post.
 
 ## Local Setup
 
